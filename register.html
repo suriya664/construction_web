@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Constructa | Create Account</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/custom.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+</head>
+
+<body class="bg-light">
+  <!--#include file="includes/preloader.html" -->
+
+  <div class="auth-brand">
+    <a href="index.html" class="auth-brand__link" aria-label="Constructa home">
+      <img src="https://cdn-icons-png.flaticon.com/512/1046/1046869.png" alt="Constructa logo" />
+      <span>Constructa</span>
+    </a>
+  </div>
+
+  <main>
+    <section class="auth-section">
+      <div class="container">
+        <div class="auth-surface">
+          <div class="auth-layout">
+            <div class="auth-intro" data-aos="fade-up">
+              <span class="auth-eyebrow">Client Portal</span>
+              <h1>Create Account</h1>
+              <p>Collaborate with Constructa experts, track milestones in real time, and access documentation the moment it is published.</p>
+            </div>
+
+            <article class="auth-card" data-aos="fade-up" data-aos-delay="150">
+              <div class="auth-card__header">
+                <span class="auth-card__badge">New to Constructa</span>
+                <h2>Set up your workspace</h2>
+              </div>
+
+              <form class="auth-card__form" id="registerForm" action="#" novalidate>
+                <div class="auth-field">
+                  <label class="auth-field__label" for="register-name">Full name</label>
+                  <div class="auth-field__input-wrapper">
+                    <input type="text" id="register-name" name="register-name" placeholder="Alex Morgan" required />
+                  </div>
+                </div>
+
+                <div class="auth-field">
+                  <label class="auth-field__label" for="register-company">Company name</label>
+                  <div class="auth-field__input-wrapper">
+                    <input type="text" id="register-company" name="register-company" placeholder="Morgan Builders LLC" required />
+                  </div>
+                </div>
+
+                <div class="auth-field">
+                  <label class="auth-field__label" for="register-email">Work email</label>
+                  <div class="auth-field__input-wrapper">
+                    <input type="email" id="register-email" name="register-email" placeholder="alex@company.com" required />
+                  </div>
+                </div>
+
+                <div class="auth-field">
+                  <label class="auth-field__label" for="register-phone">Work phone</label>
+                  <div class="auth-field__input-wrapper">
+                    <input type="tel" id="register-phone" name="register-phone" inputmode="tel" placeholder="+1 (555) 123-4567" pattern="[\d+\-\s()]{7,}" required />
+                  </div>
+                </div>
+
+                <div class="auth-field">
+                  <label class="auth-field__label" for="register-role">Your role</label>
+                  <div class="auth-field__input-wrapper">
+                    <select id="register-role" name="register-role" required>
+                      <option value="" disabled selected>Select your role</option>
+                      <option value="owner">Owner / Developer</option>
+                      <option value="project-manager">Project Manager</option>
+                      <option value="architect">Architect</option>
+                      <option value="engineer">Engineer</option>
+                      <option value="procurement">Procurement Lead</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="auth-field">
+                  <label class="auth-field__label" for="register-project-type">Primary project focus</label>
+                  <div class="auth-field__input-wrapper">
+                    <select id="register-project-type" name="register-project-type" required>
+                      <option value="" disabled selected>Choose a project type</option>
+                      <option value="commercial">Commercial construction</option>
+                      <option value="residential">Residential developments</option>
+                      <option value="infrastructure">Infrastructure / civil works</option>
+                      <option value="industrial">Industrial facilities</option>
+                      <option value="renovation">Renovation & retrofit</option>
+                      <option value="other">Other / exploratory</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="auth-field">
+                  <label class="auth-field__label" for="register-password">Password</label>
+                  <div class="auth-field__input-wrapper">
+                    <input type="password" id="register-password" name="register-password" placeholder="Create a secure password" required />
+                  </div>
+                </div>
+
+                <div class="auth-card__assist">
+                  <label class="auth-checkbox" for="terms">
+                    <input type="checkbox" id="terms" name="terms" required /> I agree to the
+                    <a href="privacy-policy.html" class="text-primary">privacy policy</a>.
+                  </label>
+                </div>
+
+                <div class="auth-card__actions">
+                  <button type="submit" class="btn btn-primary">Create Account</button>
+                </div>
+
+                <p class="auth-card__footer">
+                  Already have an account?
+                  <!-- explicit link with id -->
+                  <a id="toLogin" href="login.html" class="text-primary">Sign in here</a>.
+                </p>
+              </form>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      console.log('register.html loaded');
+
+      var toLogin = document.getElementById('toLogin');
+      if (toLogin) {
+        toLogin.addEventListener('click', function (e) {
+          e.preventDefault();
+          console.log('Navigating to login.html');
+          window.location.href = this.getAttribute('href');
+        });
+      }
+
+      var form = document.getElementById('registerForm');
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var formData = new FormData(form);
+          var payload = Object.fromEntries(formData.entries());
+          console.log('Register form submitted (demo payload)', payload);
+          window.location.href = 'login.html';
+        });
+      }
+    })();
+  </script>
+
+  <script src="assets/js/plugins.js"></script>
+  <script src="assets/js/custom.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
